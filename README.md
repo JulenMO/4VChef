@@ -1,7 +1,7 @@
 # 4VChef — RESTful API en Symfony
 
 Este proyecto es una API desarrollada en **Symfony** que permite la gestión de recetas para chefs, incluyendo sus ingredientes, pasos, nutrientes y valoraciones.  
-Está basada en la especificación `4VChef_WithVotes.yaml` oficial proporcionada para el proyecto de Desarrollo Web.
+Está basada en la especificación `4VChef_WithVotes.yaml` oficial proporcionada para el proyecto.
 
 ---
 
@@ -11,8 +11,6 @@ Está basada en la especificación `4VChef_WithVotes.yaml` oficial proporcionada
 - Composer
 - Symfony CLI
 - MySQL (recomendado con XAMPP)
-- Navegador web moderno
-- Postman (opcional para testeo)
 
 ---
 
