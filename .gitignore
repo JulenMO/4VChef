@@ -1,25 +1,28 @@
-
-###> symfony/framework-bundle ###
-/.env.local
+# --- ARCHIVOS DE CONFIGURACIÓN LOCAL ---
+.env.local
+.env.*.local
 /.env.local.php
-/.env.*.local
+
+# --- SECRETOS DE PRODUCCIÓN ---
 /config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
+
+# --- ARCHIVOS GENERADOS POR SYMFONY ---
 /var/
 /vendor/
-###< symfony/framework-bundle ###
+public/bundles/
 
-###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
-###< phpunit/phpunit ###
-
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
-
-###> symfony/asset-mapper ###
+# --- ASSETS COMPILADOS (opcional) ---
 /public/assets/
-/assets/vendor/
-###< symfony/asset-mapper ###
+assets/vendor/
+
+# --- PRUEBAS ---
+.phpunit.result.cache
+/phpunit.xml
+
+# --- MIGRACIONES (como dice el enunciado) ---
+/migrations/
+
+# --- OTROS ARCHIVOS QUE NO DEBERÍAS SUBIR ---
+/node_modules/
+.DS_Store
+Thumbs.db
