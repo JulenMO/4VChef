@@ -37,8 +37,13 @@ php bin/console doctrine:migrations:migrate
 
 # Levantar el servidor local
 symfony serve
+```
 
-## 🚀 Swagger para utilizar el proyecto
+---
 
+## 🚀 Instalación y puesta en marcha
+
+```bash
 # Una vez tengas corriendo Apache, MySQL y el propio proyecto con "symfony serve", pon esta URL en tu navegador:
 http://localhost:8000/swagger/
+```
