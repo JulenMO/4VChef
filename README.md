@@ -31,6 +31,7 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/4vchef"
 php bin/console doctrine:database:create
 
 # Generar esquema de base de datos
+mkdir migrations
 php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 
