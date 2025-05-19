@@ -41,7 +41,7 @@ symfony serve
 
 ---
 
-## 🚀 Instalación y puesta en marcha
+## 📘 Swagger para utilizar el proyecto
 
 ```bash
 # Una vez tengas corriendo Apache, MySQL y el propio proyecto con "symfony serve", pon esta URL en tu navegador:
