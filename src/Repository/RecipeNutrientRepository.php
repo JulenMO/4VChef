@@ -9,7 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @extends ServiceEntityRepository<RecipeNutrient>
  */
-class RecetaNutrienteRepository extends ServiceEntityRepository
+class RecipeNutrientRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
