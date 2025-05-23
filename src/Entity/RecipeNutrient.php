@@ -15,16 +15,15 @@ class RecipeNutrient
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'nutrients')]
-    #[Groups(['recipe:read'])]
     private ?Recipe $recipe = null;
-
-    #[ORM\ManyToOne]
-    #[Groups(['recipe:read'])]
-    private ?NutrientType $nutrientType = null;
 
     #[ORM\Column]
     #[Groups(['recipe:read'])]
     private float $amount;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['recipe:read'])]
+    private string $name;
 
     public function getId(): ?int
     {
@@ -42,14 +41,14 @@ class RecipeNutrient
         return $this;
     }
 
-    public function getNutrientType(): ?NutrientType
+    public function getName(): string
     {
-        return $this->nutrientType;
+        return $this->name;
     }
 
-    public function setNutrientType(?NutrientType $nutrientType): self
+    public function setName(string $name): self
     {
-        $this->nutrientType = $nutrientType;
+        $this->name = $name;
         return $this;
     }
 

@@ -8,7 +8,6 @@ use App\Entity\Step;
 use App\Entity\Rating;
 use App\Entity\RecipeNutrient;
 use App\Repository\RecipeRepository;
-use App\Repository\NutrientTypeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +24,7 @@ class RecipeController extends AbstractController
     }
 
     #[Route('', name: 'post_recipe', methods: ['POST'])]
-    public function create(Request $req, EntityManagerInterface $em, NutrientTypeRepository $nutrientRepo): JsonResponse
+    public function create(Request $req, EntityManagerInterface $em): JsonResponse
     {
         $data = json_decode($req->getContent(), true);
 
@@ -50,15 +49,12 @@ class RecipeController extends AbstractController
             $recipe->addStep($step);
         }
 
-        foreach ($data['nutritional'] ?? [] as $nutriData) {
-            $nutrientType = $nutrientRepo->findOneBy(['name' => $nutriData['type']]);
-            if ($nutrientType) {
-                $recipeNutrient = new RecipeNutrient();
-                $recipeNutrient->setNutrientType($nutrientType);
-                $recipeNutrient->setAmount($nutriData['amount']);
-                $recipeNutrient->setRecipe($recipe);
-                $recipe->addNutrient($recipeNutrient);
-            }
+        foreach ($data['nutrients'] ?? [] as $nutriData) {
+            $recipeNutrient = new RecipeNutrient();
+            $recipeNutrient->setName($nutriData['name']);
+            $recipeNutrient->setAmount($nutriData['amount']);
+            $recipeNutrient->setRecipe($recipe);
+            $recipe->addNutrient($recipeNutrient);
         }
 
         $em->persist($recipe);
