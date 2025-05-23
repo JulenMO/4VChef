@@ -2,11 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\StepRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ORM\Entity(repositoryClass: StepRepository::class)]
+#[ORM\Entity]
 class Step
 {
     #[ORM\Id]
@@ -17,9 +16,9 @@ class Step
 
     #[ORM\Column]
     #[Groups(['recipe:read'])]
-    private int $order;
+    private int $stepOrder;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'text')]
     #[Groups(['recipe:read'])]
     private string $description;
 
@@ -30,28 +29,34 @@ class Step
     {
         return $this->id;
     }
-    public function getOrder(): int
+
+    public function getStepOrder(): int
     {
-        return $this->order;
+        return $this->stepOrder;
     }
-    public function setOrder(int $order): self
+
+    public function setStepOrder(int $stepOrder): self
     {
-        $this->order = $order;
+        $this->stepOrder = $stepOrder;
         return $this;
     }
+
     public function getDescription(): string
     {
         return $this->description;
     }
+
     public function setDescription(string $description): self
     {
         $this->description = $description;
         return $this;
     }
+
     public function getRecipe(): ?Recipe
     {
         return $this->recipe;
     }
+
     public function setRecipe(?Recipe $recipe): self
     {
         $this->recipe = $recipe;
