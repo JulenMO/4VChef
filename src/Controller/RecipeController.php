@@ -44,7 +44,7 @@ class RecipeController extends AbstractController
 
         foreach ($data['steps'] ?? [] as $stepData) {
             $step = new Step();
-            $step->setStepOrder($stepData['order']);
+            $step->setStepOrder($stepData['stepOrder']);
             $step->setDescription($stepData['description']);
             $step->setRecipe($recipe);
             $recipe->addStep($step);
